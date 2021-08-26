@@ -20,10 +20,10 @@ const Body = styled.div`
 
 const Tabs = styled.p`
   color: #666;
-  font-size: 0.9rem;
+  font-size: 14.5px;
   line-height: 20px;
   font-weight: 600;
-  margin-top: -10px;
+  margin-top: 10px;
 
   &:hover {
     color: #0a66c2;

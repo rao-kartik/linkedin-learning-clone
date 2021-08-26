@@ -15,6 +15,7 @@ const Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    height: 90vh;
     z-index: 9999;
     background: #f3f2ef;
     display: flex;
