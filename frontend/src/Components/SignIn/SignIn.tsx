@@ -13,6 +13,7 @@ const Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    height: 90vh;
     background: #fff;
     top: 0;
     z-index: 9999;

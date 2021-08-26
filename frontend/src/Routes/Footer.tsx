@@ -27,7 +27,7 @@ const Container = styled.div`
 
 const Details = styled.p`
   color: #666;
-  font-size: 0.7rem;
+  font-size: 11.5px;
   font-weight: 600;
   display: flex;
   alignitems: center;
