@@ -91,7 +91,6 @@ export default function PaymentPage(props: any) {
       };
 
       let userId = getData("data");
-      console.log(userId.userId);
       dispatch(subscribeUser(userId.userId, payload));
       history.push("/");
     }
