@@ -45,7 +45,6 @@ const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let body = req.body;
         console.log(body.emailId, "back end");
         let userExist = yield Index_1.checkMailId(body.emailId);
-        console.log(userExist);
         if (!userExist) {
             const new_student = new user_1.default({
                 firstName: body.firstName,

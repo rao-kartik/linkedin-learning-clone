@@ -54,6 +54,7 @@ export const userReducer = (state = initState, action: any) => {
     }
     case REGISTER_USER_SUCCESS: {
       saveData("isAuth", true);
+      saveData("userDetails", payload.user);
       return {
         ...state,
         isLoading: false,
@@ -81,7 +82,7 @@ export const userReducer = (state = initState, action: any) => {
       };
     }
     case LOGIN_USER_SUCCESS: {
-      saveData("userDetails", payload);
+      saveData("userDetails", payload.user);
       saveData("isAuth", true);
       return {
         ...state,
@@ -89,6 +90,7 @@ export const userReducer = (state = initState, action: any) => {
         isError: false,
         isAuth: true,
         token: payload,
+        userDetails: payload.user
       };
     }
     case LOGIN_USER_FAILURE: {

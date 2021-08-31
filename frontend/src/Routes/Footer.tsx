@@ -70,9 +70,8 @@ export const Footer = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const { flag } = useSelector((state: State) => state.user.userDetails);
-
-  console.log(flag);
+  const user = useSelector((state: State) => state.user.userDetails);
+  const flag = user?.flag;
 
   const handleClickNewInstructor = (): void => {
     history.push("/instructor/new");

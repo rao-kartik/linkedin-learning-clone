@@ -3,8 +3,10 @@ import { PostTeacher } from "./apiTypes";
 import { IRegister } from "../Components/Register/Register";
 import { ILogin } from "../Components/SignIn/SignIn";
 
+export const url = "https://linkedin-learn-clone.herokuapp.com/"
+
 export const axios = Axios.create({
-  baseURL: "https://linkedin-learn-clone.herokuapp.com/",
+  baseURL: url,
 
   headers: {
     "Content-Type": "application/json",
