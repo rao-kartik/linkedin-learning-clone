@@ -28,7 +28,7 @@ export default function Home() {
 
    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
    React.useEffect(() => {
-      axios.get('/courses').then(({ data }) => { console.log(data.courses); setNewData(data.courses) })
+      axios.get('/courses').then(({ data }) => {setNewData(data.courses) })
    }, [])
 
    return (

@@ -100,7 +100,6 @@ export const userReducer = (state = initState, action: any) => {
       };
     }
     case SUBSCRIBE_USER: {
-      console.log(payload);
       return {
         ...state,
         userId: payload.data.result._id,
