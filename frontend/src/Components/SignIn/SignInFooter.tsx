@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme=>({
     },
     copy: {
         marginLeft: '10px',
-        fontSize: '0.8rem'
+        fontSize: '0.8rem',
     },
     expIcon: {
         fontSize: '1rem',

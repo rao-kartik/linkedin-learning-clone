@@ -10,6 +10,7 @@ const SigninLC = styled.p`
 
 const Join = styled.p`
     text-align: center;
+    line-height: 40px;
 `;
 
 interface emailProps {

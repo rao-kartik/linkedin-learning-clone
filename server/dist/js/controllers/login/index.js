@@ -8,15 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginUser = void 0;
+const user_1 = __importDefault(require("../../models/user"));
 const Index_1 = require("../utils/Index");
 const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const email = req.body.emailId;
     const password = req.body.password;
     const userStatus = yield Index_1.checkPassword(email, password);
     if (userStatus) {
-        res.status(200).json('access granted');
+        let userDetails = yield user_1.default.findOne({ emailId: email }).lean().exec();
+        res.status(200).json({
+            status: 'access granted',
+            user: userDetails
+        });
     }
     else {
         res.status(401).json('access denied');

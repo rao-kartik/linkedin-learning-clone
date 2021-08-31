@@ -29,6 +29,7 @@ const ForgetPass = styled.p`
     color: #004b7c;
     text-align: center;
     font-weight: 600;
+    margin-bottom: 20px;
 `;
 
 const SigninMagic = styled.div`
@@ -45,6 +46,7 @@ const MagicBtn = styled.button`
     height: 40px;
     font-weight: 600;
     margin-left: 8px;
+    margin-top: 8px;
 
     &:hover {
         background: #deeef5;
@@ -58,7 +60,8 @@ const useStyles = makeStyles(theme=>({
     },
     p: {
         fontSize: '14px',
-        marginLeft: '30px'
+        marginLeft: '30px',
+        lineHeight: '23px'
     },
     text: {
         paddingLeft: '30px'

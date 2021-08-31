@@ -9,13 +9,13 @@ import { NameInput } from './NameInput';
 import { registerUser } from '../../store/user/action';
 import PaymentPage from '../StripesPayment/PaymentPage';
 import { State } from '../../store/tsTypes';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    height: 90vh;
+    height: 100vh;
     z-index: 9999;
     background: #f3f2ef;
     display: flex;
@@ -25,6 +25,7 @@ const Container = styled.div`
 
 const Logo = styled.h2`
     color: #0a66c2;
+    font-size: 40px;
     text-align: center;
     margin-top: 1rem;
     font-weight: 600;
@@ -32,6 +33,9 @@ const Logo = styled.h2`
 
 
 const useStyles = makeStyles(theme=>({
+    cont: {
+        paddingTop: 50
+    },
     logo: {
         fontSize: '2.7rem',
         position: 'relative',
@@ -93,11 +97,13 @@ export default function Register () {
     
     return (
         <Container>
-            <Box>
-                <Logo>
-                    Linked
-                    <LinkedInIcon className={classes.logo} />
-                </Logo>
+            <Box className={classes.cont}>
+                <Link to='/' style={{textDecoration:'none', color:'#0a66c2'}}>
+                    <Logo>
+                        Linked
+                        <LinkedInIcon className={classes.logo} />
+                    </Logo>
+                </Link>
                 <Typography className={classes.text}>Make the most of your professional life</Typography>
                 {
                     !showName?

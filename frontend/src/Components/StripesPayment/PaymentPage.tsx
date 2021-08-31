@@ -9,6 +9,7 @@ import { registerUser, subscribeUser } from "../../store/user/action";
 import { getData, setData } from "../../store/temp/state";
 import { State } from "../../store/tsTypes";
 import { SUBSCRIBE_USER } from "../../store/user/actionTypes";
+import { url } from "../../api/api";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
@@ -44,28 +45,31 @@ const Section = styled.section`
     height: 70px;
   }
 `;
-const ProductDisplay = ({ handleClick }: any) => (
-  <Section>
-    <Product className="product">
-      <img
-        src="https://linkden-learning.s3.ap-south-1.amazonaws.com/profile-pics/Logo.png"
-        alt="The cover of Stubborn Attachments"
-      />
-      <div className="description">
-        <h3>Subscription</h3>
-        <span>500.00 INR</span>
-      </div>
-    </Product>
-    <button
-      type="button"
-      id="checkout-button"
-      role="link"
-      onClick={handleClick}
-    >
-      Checkout
-    </button>
-  </Section>
-);
+const ProductDisplay = ({ handleClick }: any) => {
+
+  return (
+    <Section>
+      <Product className="product">
+        <img
+          src="https://linkden-learning.s3.ap-south-1.amazonaws.com/profile-pics/Logo.png"
+          alt="The cover of Stubborn Attachments"
+        />
+        <div className="description">
+          <h3>Subscription</h3>
+          <span>500.00 INR</span>
+        </div>
+      </Product>
+      <button
+        type="button"
+        id="checkout-button"
+        role="link"
+        onClick={handleClick}
+      >
+        Checkout
+      </button>
+    </Section>
+  )
+};
 
 const Message = ({ message }: any) => (
   <Section>
@@ -83,6 +87,7 @@ export default function PaymentPage(props: any) {
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
+    console.log(query)
 
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
@@ -91,7 +96,6 @@ export default function PaymentPage(props: any) {
       };
 
       let userId = getData("data");
-      console.log(userId.userId);
       dispatch(subscribeUser(userId.userId, payload));
       history.push("/");
     }
@@ -115,7 +119,7 @@ export default function PaymentPage(props: any) {
   const handleClick = async (event: any) => {
     const stripe: any = await stripePromise;
 
-    const response = await fetch("http://localhost:5000/payment", {
+    const response = await fetch(`${url}payment`, {
       method: "POST",
     });
 

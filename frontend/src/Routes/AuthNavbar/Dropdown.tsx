@@ -21,6 +21,7 @@ export default function Dropdown({ setShowMeOpt }: IDropdownProps) {
     const data =useSelector((state:State)=>state.user.userDetails)
 
     const userDetails:any = useSelector((state: State)=> state.user.userDetails)
+    console.log(userDetails)
     const { flag } = useSelector((state: State) => state.user.userDetails);
 
     const history = useHistory()

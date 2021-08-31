@@ -46,7 +46,6 @@ export const addUser = async (req: Request, res: Response): Promise<void> => {
     >;
     console.log(body.emailId, "back end");
     let userExist = await checkMailId(body.emailId);
-    console.log(userExist);
     if (!userExist) {
       const new_student: IUser = new user({
         firstName: body.firstName,

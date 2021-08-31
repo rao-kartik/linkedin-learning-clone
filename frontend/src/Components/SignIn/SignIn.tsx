@@ -7,16 +7,19 @@ import { SignInInput } from './SignInInput';
 import { SignInFooter } from './SignInFooter';
 import { getUserByEmail, loginUser } from '../../store/user/action';
 import { State } from '../../store/tsTypes';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    height: 90vh;
+    height: 100vh;
     background: #fff;
     top: 0;
     z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 const Signin = styled.div`
@@ -32,7 +35,7 @@ const Logo = styled.div`
 `;
 
 const IconText = styled.p`
-    font-size: .9rem;
+    font-size: 22px;
     font-weight: 400;
     margin-left: 5px;
     letter-spacing: 2px;
@@ -128,15 +131,17 @@ export default function SignIn () {
     return (
         <Container>
             <Signin>
-                <Logo>
-                    <LinkedInIcon className={classes.logo} />
-                    <IconText>LEARNING</IconText>
-                </Logo>
+                <Link to='/' style={{textDecoration:'none', color: 'inherit'}}>
+                    <Logo>
+                        <LinkedInIcon className={classes.logo} />
+                        <IconText>LEARNING</IconText>
+                    </Logo>
+                </Link>
                 {
                     show &&
                     <>
                         <LinkedInLogo>
-                            <h1>Linked</h1>
+                            <h1 style={{fontSize: '40px'}}>Linked</h1>
                             <LinkedInIcon className={classes.bigLogo} />
                         </LinkedInLogo>
                         <p className={classes.email}>
